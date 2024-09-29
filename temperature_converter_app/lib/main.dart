@@ -8,7 +8,7 @@ class TemperatureConverterApp extends StatelessWidget {
     return MaterialApp(
       title: 'Temperature Converter',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.black38,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: TemperatureConverter(),
@@ -36,14 +36,14 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
       if (_conversionType == 'F to C') {
         result = (inputTemp - 32) * 5 / 9;
         conversion =
-        'F to C: ${inputTemp.toStringAsFixed(2)} ➔ ${result.toStringAsFixed(2)}';
+        'F to C: ${inputTemp.toStringAsFixed(2)} ➔ ${result.toStringAsFixed(1)}';
       } else {
         result = (inputTemp * 9 / 5) + 32;
         conversion =
-        'C to F: ${inputTemp.toStringAsFixed(2)} ➔ ${result.toStringAsFixed(2)}';
+        'C to F: ${inputTemp.toStringAsFixed(2)} ➔ ${result.toStringAsFixed(1)}';
       }
 
-      _convertedValue = result.toStringAsFixed(2);
+      _convertedValue = result.toStringAsFixed(1);
       _conversionHistory.insert(0, conversion);
     });
   }
@@ -57,7 +57,7 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.teal, Colors.tealAccent],
+            colors: [Colors.black38, Colors.black38],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -139,7 +139,7 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
                       color: Colors.white.withOpacity(0.3),
                       margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 0),
                       child: ListTile(
-                        title: Text(_conversionHistory[index], style: TextStyle(color: Colors.teal)),
+                        title: Text(_conversionHistory[index], style: TextStyle(color: Colors.white)),
                       ),
                     );
                   },
